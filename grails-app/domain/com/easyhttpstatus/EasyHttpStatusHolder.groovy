@@ -31,6 +31,10 @@ class EasyHttpStatusHolder {
         hasAnswer() ? current.httpStatus.description : ""
     }
 
+    String loadSource() {
+        hasAnswer() ? current.httpStatus.source : ""
+    }
+
     Integer loadHttpStatusCode() {
         hasAnswer() ? current.httpStatus.code : 0
     }

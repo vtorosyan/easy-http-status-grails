@@ -17,6 +17,7 @@ class EasyHttpStatus {
     static class HttpStatus {
         Integer code
         String description
+        String source
     }
     
 }

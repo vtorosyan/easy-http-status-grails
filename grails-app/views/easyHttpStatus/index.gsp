@@ -27,13 +27,8 @@
                         </g:if>
                         <g:else>
                             <div class="span6 status_code">
-                                <h3>${easyHttpStatus.loadHttpStatusCode()}</h3>
-                            </div>
-                            <br/>
-
-                            <div class="span12 description">
-                                <h4>${easyHttpStatus.loadAnswerDescription()}</h4>
-                            </div>
+                                <h3><a target="_blank" href="${easyHttpStatus.loadSource()}">${easyHttpStatus.loadHttpStatusCode()}</a></h3>
+                            </div>                    
                         </g:else>
                     </div>
                 </div>
