@@ -2,26 +2,58 @@
 <html>
 <head>
     <title>Easy HttpStatus</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="author" content="Vardan Torosyan">
+    <meta name="copyright" content="vtorosyan.github.io">
+    <meta name="summary" content="Easy HttpStatus">
+    <meta name="subject" content="Easy HttpStatus">
+    <meta name="description" content="Making choosing HTTP Status easy">
+
+    <asset:stylesheet src="application.css"/>
 </head>
 
 <body>
-    <form>
-        <g:if test="${!easyHttpStatus.hasAnswer()}">
-            ${easyHttpStatus.loadQuestion()}
-            <span class="button"><g:actionSubmit action="answerNo" value="No"/></span>
-            <span class="button"><g:actionSubmit action="answerYes" value="Yes"/></span>
-        </g:if>
-        <g:else>
-            Code: ${easyHttpStatus.loadHttpStatusCode()}
-            <br/>
-            Description: ${easyHttpStatus.loadAnswerDescription()}
-        </g:else>
+<div class="container container-table">
+    <div class="row vertical-center-row">
+        <div class="btn text-center col-md-4 col-md-offset-4">
+            <form>
 
-        <g:if test="${easyHttpStatus.hasPrevious()}">
-            <span class="button"><g:actionSubmit action="goBack" value="Go Back"/></span>
-        </g:if>
-        <span class="button"><g:actionSubmit action="reset" value="Start Again"/></span>
-    </form>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <g:if test="${!easyHttpStatus.hasAnswer()}">
+                            <h1 class="question">${easyHttpStatus.loadQuestion()}</h1>
+                        </g:if>
+                        <g:else>
+                            <div class="span6 status_code">
+                                <h3>${easyHttpStatus.loadHttpStatusCode()}</h3>
+                            </div>
+                            <br/>
+
+                            <div class="span12 description">
+                                <h4>${easyHttpStatus.loadAnswerDescription()}</h4>
+                            </div>
+                        </g:else>
+                    </div>
+                </div>
+
+                <div class="row-fluid" style="margin-top: 5px">
+                    <div class="span6">
+                        <g:if test="${!easyHttpStatus.hasAnswer()}">
+                            <g:actionSubmit action="answerNo" value="No"/>
+                            <g:actionSubmit action="answerYes" value="Yes"/>
+                        </g:if>
+                        <g:if test="${easyHttpStatus.hasPrevious()}">
+                            <g:actionSubmit action="goBack" value="Go Back"/>
+                            <g:actionSubmit action="reset" value="Reset"/>
+                        </g:if>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>

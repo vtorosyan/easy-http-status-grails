@@ -11,12 +11,12 @@ class EasyHttpStatusHolder {
 
     void answerYes() {
         keepPrevious()
-        current = current.nextOnYes
+        current = current.nextOnYes ?: current
     }
 
     void answerNo() {
         keepPrevious()
-        current = current.nextOnNo
+        current = current.nextOnNo ?: current
     }
 
     void goBack() {
@@ -43,8 +43,14 @@ class EasyHttpStatusHolder {
         current.httpStatus != null
     }
 
+    boolean hasNext() {
+        current.nextOnNo != null || current.nextOnYes != null
+    }
+
     private void keepPrevious() {
-        stack.push(current)
+        if (hasNext()) {
+            stack.push(current)
+        }
     }
 
 }

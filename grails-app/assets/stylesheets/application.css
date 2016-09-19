@@ -1,15 +1,35 @@
 /*
-* This is a manifest file that'll be compiled into application.css, which will include all the files
-* listed below.
-*
-* Any CSS file within this directory can be referenced here using a relative path.
-*
-* You're free to add application-wide styles to this file and they'll appear at the top of the
-* compiled file, but it's generally better to create a new file per style scope.
-*
 *= require bootstrap
-*= require grails
-*= require main
-*= require mobile
 *= require_self
 */
+
+html, body, .container-table {
+    height: 100%;
+    width: 100%;
+}
+.container-table {
+    display: table;
+}
+
+input {
+    width: 25%;
+}
+
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.question {
+    color: #5e5e5e;
+}
+
+.status_code {
+    color: #c7254e;
+}
+
+.description {
+    color: #222222;
+    word-wrap: break-word;
+}

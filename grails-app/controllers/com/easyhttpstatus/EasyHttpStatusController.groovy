@@ -1,18 +1,16 @@
 package com.easyhttpstatus
 
-import javax.annotation.PostConstruct
-
 class EasyHttpStatusController {
 
     def easyHttpStatusService
     def EasyHttpStatusHolder easyHttpStatusHolder
 
-    @PostConstruct
     void init() {
         easyHttpStatusHolder = easyHttpStatusService.load()
     }
 
     def index() {
+        init()
         renderView()
     }
 

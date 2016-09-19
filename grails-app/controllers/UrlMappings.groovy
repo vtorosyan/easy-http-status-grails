@@ -8,6 +8,8 @@ class UrlMappings {
         }
 
         "/"(controller: 'easyHttpStatus', action: 'index', view: 'easyHttpStatus/index')
+        "500"(view:'/error')
+        "404"(view:'/notFound')
     }
 
 }
